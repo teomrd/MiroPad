@@ -8,7 +8,7 @@
   "scripts": {
     "start": "http-server dist",
     "dev": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production && workbox injectManifest workbox-config.js",
+    "build": "webpack --mode production && workbox injectManifest workbox-config.js && cp ./src/serviceWorker.js ./dist/",
     "lint": "eslint 'src/**/*js'",
     "deploy": "./scripts/deploy.sh"
   },

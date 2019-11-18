@@ -1,24 +1,8 @@
 import main from "./js/main";
+import { registerServiceWorkers } from "./js/serviceWorkers";
 
 (() => {
-  console.log('VERSION: ', VERSION); // eslint-disable-line
+  console.log("VERSION: ", VERSION);
   main();
-
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("/sw.js")
-        .then(registration => console.log("SW registered: ", registration))
-        .catch(registrationError =>
-          console.log("SW registration failed: ", registrationError)
-        );
-
-      navigator.serviceWorker
-        .register("/serviceWorker.js")
-        .then(registration => console.log("SW registered: ", registration))
-        .catch(registrationError =>
-          console.log("SW registration failed: ", registrationError)
-        );
-    });
-  }
+  registerServiceWorkers();
 })();
