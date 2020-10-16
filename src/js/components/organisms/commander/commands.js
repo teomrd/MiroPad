@@ -45,7 +45,9 @@ import RocketSVG from "../../../../assets/svg/rocket.svg";
 import SpellCheckSVG from "../../../../assets/svg/spell-check.svg";
 import PencilSVG from "../../../../assets/svg/pencil.svg";
 import ShareSVG from "../../../../assets/svg/exit-up.svg";
+import AlarmSVG from "../../../../assets/svg/alarm.svg";
 import { share } from "../../../utils/webShare";
+import { notifier } from "../../molecules/notifier";
 
 const getSyncTitle = () => {
   const gistId = storage.get("gistId");
@@ -68,6 +70,17 @@ const shareNoteCommand = {
 
 export const commands = () => {
   return [
+    {
+      title: "Set reminder",
+      icon: icon(AlarmSVG, "Reminder"),
+      sortTitle: "Reminder",
+      key: "shift r",
+      call: () => {
+        console.log("Reminders are under construction");
+        notifier.notify("Hey there");
+        commander.hide();
+      },
+    },
     {
       title: "New note",
       icon: icon(PencilSVG, "new note"),
