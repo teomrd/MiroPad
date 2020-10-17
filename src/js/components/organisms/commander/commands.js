@@ -16,6 +16,7 @@ import commander from "./commander";
 import {
   saveFileAs,
   saveDataToFile,
+  saveFileAsWithServiceWorker,
 } from "../../../utils/fileSystem/fileSystem";
 import { url } from "../../../utils/urlManager";
 import { mailTo } from "../../../utils/mail";
@@ -72,6 +73,7 @@ export const commands = () => {
   return [
     {
       title: "Set reminder",
+      experimental: true,
       icon: icon(AlarmSVG, "Reminder"),
       sortTitle: "Reminder",
       key: "shift r",
@@ -186,6 +188,7 @@ export const commands = () => {
         const { text, title } = getNote();
         await navigator.clipboard.writeText(title);
         saveFileAs(text);
+        saveFileAsWithServiceWorker(title, text);
         commander.hide();
       },
     },

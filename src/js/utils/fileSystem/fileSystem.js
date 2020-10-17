@@ -24,6 +24,26 @@ export const writeFile = async (fileHandle, contents) => {
 };
 
 /**
+ * Saves a new file to disk using the Service Worker.
+ * Thanks to https://serviceworke.rs/local-download_service-worker_doc.html
+ */
+export const saveFileAsWithServiceWorker = async (title, content) => {
+  try {
+    const response = await fetch("/download", {
+      method: "POST",
+      body: JSON.stringify({
+        title,
+        content,
+      }),
+    }).then(() => {
+      window.location = "/download";
+    });
+  } catch (error) {
+    console.log({ error });
+  }
+};
+
+/**
  * Saves a new file to disk.
  */
 export const saveFileAs = async (contents) => {
