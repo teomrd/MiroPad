@@ -64,13 +64,11 @@ export const terminal = (() => {
       const isFirstOption = currentlySelected === 0;
       const isDown = direction === "down";
 
-      const indexToSelect = isDown
-        ? isLastOption
-          ? 0
-          : currentlySelected + 1
-        : isFirstOption
-          ? lastOption
-          : currentlySelected - 1;
+      const lastOptionChoice = isLastOption ? 0 : currentlySelected + 1;
+      const firstOptionChoice = isFirstOption
+        ? lastOption
+        : currentlySelected - 1;
+      const indexToSelect = isDown ? lastOptionChoice : firstOptionChoice;
 
       state.options = {
         ...state.options,

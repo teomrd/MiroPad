@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 (() => {
   class EditableList extends HTMLElement {
     constructor() {
@@ -38,14 +39,14 @@
         <h3>${title}</h3>
         <ul class="item-list">
           ${listItems
-    .map(
+            .map(
               (item) => `
             <li>${item}
               <button class="editable-list-remove-item icon">&ominus;</button>
             </li>
           `
-    )
-    .join("")}
+            )
+            .join("")}
         </ul>
         <div>
           <label>${addItemText}</label>

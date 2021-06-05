@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 // /*global Buffer */
 // import IPFS from "ipfs";
 // import { url } from "./urlManager";
@@ -56,6 +58,7 @@ const ipfs = {
     // }
   },
   save: async function (value) {
+    // console.log("save value to IPFS:", value);
     // const add = async () => {
     //   const node = await initIpfsNode();
     //   const results = await node.add([{ content: Buffer.from(value) }]);
